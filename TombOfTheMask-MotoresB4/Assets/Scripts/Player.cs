@@ -9,9 +9,9 @@ public class Player : MonoBehaviour
     public float forcaDoMov;
     public int health;
 
-    [Header("Atributos")] 
-    public Animator anim;
-    public Rigidbody2D rig;
+    [Header("Componentes")] 
+    private Animator anim;
+    private Rigidbody2D rig;
 
     [Header("Booleanos")] 
     public bool isMovendo;
@@ -31,7 +31,9 @@ public class Player : MonoBehaviour
 
     private void MovePlayer()
     {
-        //rig.AddForce(new Vector2(forcaDoMov, 0), ForceMode2D.Impulse);
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
+        transform.position = transform.position + movement * forcaDoMov * Time.deltaTime;
+
     }
     
     
