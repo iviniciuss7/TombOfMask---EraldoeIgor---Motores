@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rig;
 
     [Header("Booleanos")] 
-    public bool isMovendo;
+    public bool isMove = false;
     
     
     void Start()
@@ -31,10 +31,20 @@ public class Player : MonoBehaviour
 
     private void MovePlayer()
     {
+
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
         transform.position = transform.position + movement * forcaDoMov * Time.deltaTime;
 
+        if (!isMove && Input.GetKey(KeyCode.RightArrow))
+        {
+            rig.velocity = new Vector2(forcaDoMov, 0f);
+            isMove = true;
+        }
+
+        else
+        {
+            rig.velocity = Vector2.zero;
+        }
     }
-    
     
 }
