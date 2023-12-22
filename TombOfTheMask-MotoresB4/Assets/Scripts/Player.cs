@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
@@ -14,7 +15,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rig;
 
     [Header("Booleanos")] 
-    public bool isMove = false;
+    public bool isMove;
     
     
     void Start()
@@ -27,23 +28,47 @@ public class Player : MonoBehaviour
     void Update()
     {
         MovePlayer();
+        
     }
 
     private void MovePlayer()
     {
+        
+    }
 
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
-        transform.position = transform.position + movement * forcaDoMov * Time.deltaTime;
-
-        if (!isMove && Input.GetKey(KeyCode.RightArrow))
-        {
-            rig.velocity = new Vector2(forcaDoMov, 0f);
-            isMove = true;
+    IEnumerator SlideMovePLayer()
+    {
+        if (!isMove){
+            if (Input.GetKey(KeyCode.D))
+            {
+                rig.velocity = new Vector2(forcaDoMov, 0f);
+                isMove = true;
+            }
+            else if (Input.GetKey(KeyCode.A))
+            {
+                rig.velocity = new Vector2(-forcaDoMov, 0f);
+                isMove = true;
+            }
+        
+            else if (Input.GetKey(KeyCode.W))
+            {
+                rig.velocity = new Vector2(0f, forcaDoMov);
+                isMove = true;
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                rig.velocity = new Vector2(0f, -forcaDoMov);
+                isMove = true;
+            }
         }
-
-        else
+    }
+    
+    
+    private void OnCollisionEnter2D(Collision2D colPlayer)
+    {
+        if (colPlayer.gameObject.CompareTag("Wall"))
         {
-            rig.velocity = Vector2.zero;
+            isMove = false;
         }
     }
     

@@ -130,17 +130,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7570396371317351163, guid: 58a018f50eda6594694cfab1c3b284dd, type: 3}
+      propertyPath: forcaDoMov
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7570396371317351165, guid: 58a018f50eda6594694cfab1c3b284dd, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7570396371317351165, guid: 58a018f50eda6594694cfab1c3b284dd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3940871
+      value: -2.42
       objectReference: {fileID: 0}
     - target: {fileID: 7570396371317351165, guid: 58a018f50eda6594694cfab1c3b284dd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.0325643
+      value: -3.62
       objectReference: {fileID: 0}
     - target: {fileID: 7570396371317351165, guid: 58a018f50eda6594694cfab1c3b284dd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -237,9 +241,9 @@ GameObject:
   - component: {fileID: 1856322094}
   - component: {fileID: 1856322093}
   - component: {fileID: 1856322095}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TileMap
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
