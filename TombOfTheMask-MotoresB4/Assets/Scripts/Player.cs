@@ -8,11 +8,14 @@ public class Player : MonoBehaviour
 {
     public float moveSpeed;
     private Rigidbody2D rb;
+    public AudioSource sourcePlayer;
+    public AudioClip clipDie, clipCoin, clipStar;
 
     private Vector2 direcaoAtual;
 
     void Start()
     {
+        sourcePlayer = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         direcaoAtual = Vector2.zero;
     }
@@ -45,27 +48,22 @@ public class Player : MonoBehaviour
 
         if (colPlayer.gameObject.CompareTag("Enemy")) 
         {
-            
+            sourcePlayer.PlayOneShot(clipDie);
         }
-        
         
     }
 
     private void OnTriggerEnter2D(Collider2D colPlayer)
     {
-        if (colPlayer.gameObject.CompareTag("Indicador"))
-        {
-            
-        }
-        
+
         if (colPlayer.gameObject.CompareTag("Coin"))
         {
-            
+            sourcePlayer.PlayOneShot(clipCoin);
         }
         
         if (colPlayer.gameObject.CompareTag("Star"))
         {
-            
+            sourcePlayer.PlayOneShot(clipStar);
         }
     }
 }
