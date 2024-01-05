@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
     private void UpdateScoreText()
     {
         textScore.text = countScore.ToString();
-    }
+    }    
 
 
     public void UpdateScore(int value)
