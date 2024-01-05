@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: beb540ad8059e12449cb84ccc0c487bf
   - enabled: 1
-    path: Assets/Scenes/CenaPLayerIgor.unity
+    path: Assets/Scenes/CenaEraldo.unity
     guid: 84073291020086e499afb207d2f4659c
   - enabled: 1
     path: Assets/Scenes/CenaEraldo.unity
