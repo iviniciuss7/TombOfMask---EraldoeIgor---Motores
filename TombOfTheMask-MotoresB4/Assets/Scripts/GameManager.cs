@@ -14,19 +14,14 @@ public class GameManager : MonoBehaviour
     public GameObject pauseObj;
     private bool isPaused;
     public GameObject gameoverObj;
-   
+    public TextMeshProUGUI scoreText;
+    public int score; 
     
 
     void Awake()
     {
         instance = this;
-        
     }
-
-    private void Start()
-    {
-    }
-
 
     private void Update()
     {
@@ -34,6 +29,11 @@ public class GameManager : MonoBehaviour
         PauseGame();
     }
 
+    public void UpdateScore(int value)
+    {
+        score += value;
+        scoreText.text = score.ToString();
+    }
     public void PauseGame()
     {
         if (Input.GetKeyDown(KeyCode.P))

@@ -46,3 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseObj: {fileID: 0}
   gameoverObj: {fileID: 0}
+  scoreText: {fileID: 0}
+  score: 0
