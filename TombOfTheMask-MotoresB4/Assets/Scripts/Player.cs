@@ -77,15 +77,23 @@ public class Player : MonoBehaviour
 
         if (colPlayer.gameObject.CompareTag("Chegada"))
         {
-            int cenaAtual = SceneManager.GetActiveScene().buildIndex;
-            int proxCena = cenaAtual + 1;
-            
-            if (proxCena == SceneManager.sceneCountInBuildSettings)
-            {
-                proxCena = 0;
-            }
+            CarregarCena();
+        }
+    }
 
-            SceneManager.LoadScene(proxCena);
+    void CarregarCena()
+    {
+        int cenaAtualIndex = SceneManager.GetActiveScene().buildIndex;
+        int proximaCenaIndex = cenaAtualIndex + 1;
+
+        if (proximaCenaIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(proximaCenaIndex);
+        }
+        else
+        {
+            Debug.Log("Não há mais cenas disponíveis. Reiniciando o jogo ou realizando outra ação desejada.");
+            
         }
     }
 }
