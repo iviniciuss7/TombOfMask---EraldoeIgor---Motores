@@ -90,10 +90,5 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene(proximaCenaIndex);
         }
-        else
-        {
-            Debug.Log("Não há mais cenas disponíveis. Reiniciando o jogo ou realizando outra ação desejada.");
-            
-        }
     }
 }
