@@ -51,8 +51,6 @@ public class Player : MonoBehaviour
         Destroy(gameObject);
     }
     
-    
-    
     private void OnCollisionEnter2D(Collision2D colPlayer)
     {
 

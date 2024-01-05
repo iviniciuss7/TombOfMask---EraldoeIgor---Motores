@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CenaPLayerIgor.unity
     guid: 84073291020086e499afb207d2f4659c
+  - enabled: 1
+    path: Assets/Scenes/CenaEraldo.unity
+    guid: 01d57bbe071a0ca44b7c7371548cbaca
   m_configObjects: {}
