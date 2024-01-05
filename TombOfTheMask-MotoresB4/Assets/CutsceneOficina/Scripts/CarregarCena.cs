@@ -12,8 +12,5 @@ public class CarregarCena : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

@@ -55,18 +55,8 @@ public class EfeitoDigitador : MonoBehaviour
             msg += letra;
             compTexto.text = msg;
             _audioSource.Play();
-            /*if (letra == ',')
-            {
-                yield return new WaitForSeconds(pausaBreve);
-            }
-            else if (letra is '.' or '!' or '?')
-            {
-                yield return new WaitForSeconds(pausaLonga);
-            }*/
-            //else
-            //{
-                yield return new WaitForSeconds(tempoLetras);
-            //}
+            yield return new WaitForSeconds(tempoLetras);
+            
             
         }
 
