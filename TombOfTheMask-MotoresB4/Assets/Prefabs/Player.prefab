@@ -128,10 +128,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 50
+  rotationSpeed: 720
   sourcePlayer: {fileID: 0}
-  clipDie: {fileID: 0}
+  clipDie: {fileID: 8300000, guid: 004f3e395e55f8a4e8a53a65447daa9b, type: 3}
   clipCoin: {fileID: 8300000, guid: b4f3ba56b5c4a9f49bc2d5fd1f8ac8b6, type: 3}
-  clipStar: {fileID: 0}
+  clipStar: {fileID: 8300000, guid: b4f3ba56b5c4a9f49bc2d5fd1f8ac8b6, type: 3}
 --- !u!50 &7570396371317351160
 Rigidbody2D:
   serializedVersion: 4

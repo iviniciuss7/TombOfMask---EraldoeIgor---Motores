@@ -5,10 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
-  - Enemy
   - Indicador
   - Star
   - Coin
+  - ENEMY
+  - Chegada
   layers:
   - Default
   - TransparentFX

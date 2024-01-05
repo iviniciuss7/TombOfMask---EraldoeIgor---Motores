@@ -8,15 +8,16 @@ public class Player : MonoBehaviour
 {
     public float moveSpeed;
     private Rigidbody2D rb;
+    private Animator anim;
     public AudioSource sourcePlayer;
     public AudioClip clipDie, clipCoin, clipStar;
-
     private Vector2 direcaoAtual;
 
     void Start()
     {
         sourcePlayer = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         direcaoAtual = Vector2.zero;
     }
 
@@ -27,10 +28,10 @@ public class Player : MonoBehaviour
 
     void MovePlayer()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
-        Vector2 novaDirecao = new Vector2(horizontalInput, verticalInput).normalized;
+        Vector2 novaDirecao = new Vector2(horizontal, vertical).normalized;
         
         if (rb.velocity == Vector2.zero)
         {
@@ -38,7 +39,15 @@ public class Player : MonoBehaviour
         }
         
         Vector2 moveVelocity = direcaoAtual * moveSpeed;
-        rb.velocity = moveVelocity;
+        rb.velocity = moveVelocity;    
+    }
+
+    IEnumerator Die()
+    {
+        anim.SetTrigger("dying");
+        yield return new WaitForSeconds(1.2f);
+        GameManager.instance.GameOver();
+        Destroy(gameObject);
     }
     
     
@@ -46,9 +55,10 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D colPlayer)
     {
 
-        if (colPlayer.gameObject.CompareTag("Enemy")) 
+        if (colPlayer.gameObject.CompareTag("ENEMY")) 
         {
             sourcePlayer.PlayOneShot(clipDie);
+            StartCoroutine("Die");
         }
         
     }
@@ -64,6 +74,11 @@ public class Player : MonoBehaviour
         if (colPlayer.gameObject.CompareTag("Star"))
         {
             sourcePlayer.PlayOneShot(clipStar);
+        }
+
+        if (colPlayer.gameObject.CompareTag("Chegada"))
+        {
+            
         }
     }
 }
