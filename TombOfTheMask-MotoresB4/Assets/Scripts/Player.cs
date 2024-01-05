@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public float moveSpeed;
@@ -78,7 +79,15 @@ public class Player : MonoBehaviour
 
         if (colPlayer.gameObject.CompareTag("Chegada"))
         {
+            int cenaAtual = SceneManager.GetActiveScene().buildIndex;
+            int proxCena = cenaAtual + 1;
             
+            if (proxCena == SceneManager.sceneCountInBuildSettings)
+            {
+                proxCena = 0;
+            }
+
+            SceneManager.LoadScene(proxCena);
         }
     }
 }
