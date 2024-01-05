@@ -15,18 +15,7 @@ public class GameManager : MonoBehaviour
     private bool isPaused;
     public GameObject gameoverObj;
    
-    public int _countScore;
-    public Text textScore;
     
-    public int countScore
-    {
-        get { return _countScore; }
-        private set
-        {
-            _countScore = value;
-            UpdateScoreText();
-        }
-    }
 
     void Awake()
     {
@@ -36,7 +25,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        countScore = 0;
     }
 
 
@@ -73,22 +61,13 @@ public class GameManager : MonoBehaviour
 
     public void ReiniciarMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     
     public void EncerrarJogo()
     {
         Application.Quit();
     }
-
-    private void UpdateScoreText()
-    {
-        textScore.text = countScore.ToString();
-    }    
-
-
-    public void UpdateScore(int value)
-    {
-        countScore += value;
-    }
+    
+    
 }
